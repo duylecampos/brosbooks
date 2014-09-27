@@ -15,9 +15,9 @@ function findTheBook(){
 		data: { q : $('#search-field').val() },
 		dataType: "json"
 	}).done(function(results) {
-		// $('.article-wrapper').remove();
+		$('.article-wrapper').remove();
 		$.each(results.items, function(key, val) {
-			createMovieList(val.volumeInfo);
+			createBookList(val.volumeInfo);
 		});
 	}).fail(function( jqXHR, textStatus ) {
 		alert( "Request failed: " + textStatus );
@@ -25,42 +25,33 @@ function findTheBook(){
 }
 
 
-function createMovieList(movieData){
-	thumbnail = (typeof(movieData.imageLinks) != 'undefined')? movieData.imageLinks.thumbnail : './img/book-placeholder.jpg';
-	authors = (typeof(movieData.authors) != 'undefined')? movieData.authors.join() : '-';
+function createBookList(bookData){
+	thumbnail = (typeof(bookData.imageLinks) != 'undefined')? bookData.imageLinks.thumbnail : './img/book-placeholder.jpg';
+	authors = (typeof(bookData.authors) != 'undefined')? bookData.authors.join() : '-';
 	$('#found-books').append(
 		$('<div />').addClass('bloc col-md-4 col-xs-12 article-wrapper').append(
 			$('<div />').addClass('article').append(
 				$('<div />').addClass('img-wrapper').append($('<img/>').attr('src', thumbnail))
 			).append($('<div />').addClass('info-wrapper').append(
 					$('<div />').addClass('title-wrapper').append(
-						$('<h1 />').append(movieData.title)
+						$('<h1 />').append(bookData.title)
 					)
 				).append(
 					$('<small />').addClass('authors').append($('<strong />').append('Autores: ')).append(authors)
 				).append(
-					$('<p />').addClass('desc').append(movieData.description)
+					$('<p />').addClass('desc').append(bookData.description)
 				)
 			).append(
 				$('<div />').addClass('overflow-fading')
 			)
 		).append(
 			$('<div />').addClass('actions').append(
-				$('<div />').addClass('col-md-4 col-xs-4 add').text('Add')
+				$('<div />').addClass('col-md-4 col-xs-4 add').append($('<span />').addClass('icon-plus'))
 			).append(
-				$('<div />').addClass('col-md-4 col-xs-4 details').text('Details')
+				$('<div />').addClass('col-md-4 col-xs-4 details').append($('<span />').addClass('icon-expand'))
 			).append(
-				$('<div />').addClass('col-md-4 col-xs-4 read').text('Read')
+				$('<div />').addClass('col-md-4 col-xs-4 check-read').append($('<span />').addClass('icon-checkmark'))
 			)
 		)
 	);
 }
-
-// <div class="bloc col-xs-12 col-xs-4 article-wrapper">
-//   <article>
-//     <a href="#" class="more">more</a>
-//     <div class="img-wrapper"><img src="http://lorempixel.com/150/150/fashion" alt="" /></div>
-//     <h1>Lorem ipsum dolor.</h1>
-//     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet ducimus totam quasi nam porro sed.</p>
-//   </article>
-// </div>

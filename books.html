@@ -9,9 +9,12 @@
 
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.css" rel="stylesheet">
+		<!-- Font import file -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 		<!-- Custom Styles -->
 		<link rel="stylesheet/less" type="text/css" href="css/style-books.less" />
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+		<link rel="stylesheet/less" type="text/css" href="css/font-icons.css" />
+		
 		<!-- Less client-side compiler -->
 		<script type="text/javascript" src="js/less-1.7.4.min.js"></script>
 
@@ -23,7 +26,7 @@
 			<h1 id="header" class="text-primary">Bro's Books</h1>
 			<br />
 			<div class="input-group col-md-4 col-md-offset-4 col-xs-12">
-				<input type="text" class="form-control" id="search-field" placeholder="Busque seu livro aqui">
+				<input type="text" class="form-control" id="search-field" placeholder="Busque seu livro aqui" value="The Hitchhiker's Guide to the Galaxy">
 				<span class="input-group-btn">
 					<button class="btn btn-default" type="button" id="book-search">Buscar!</button>
 				</span>
@@ -34,7 +37,7 @@
 		  <div class="clearfix"></div>
 		  <div class="row" id="found-books">
 		  	<!-- Example div -->
-	<!-- 	    <div class="col-md-4 col-xs-12 article-wrapper">
+		    <div class="col-md-4 col-xs-12 article-wrapper">
 		     	<div class="article">
 			     	<div class="img-wrapper">
 			     		<img src="http://bks3.books.google.com.br/books?id=DmUr6q1EDYMC&amp;printsec=frontcover&amp;img=1&amp;zoom=1&amp;edge=curl&amp;source=gbs_api">
@@ -50,24 +53,27 @@
 				     	<p class="desc">
 				     		Thirty years of celebrating the comic genius of Douglas Adams... On 12 October 1979 the most remarkable book ever to come out of the great publishing corporations of Ursa Minor (and Earth) was made available to humanity – The Hitchhiker’s Guide to the Galaxy. It’s an ordinary Thursday lunchtime for Arthur Dent until his house gets demolished. The Earth follows shortly afterwards to make way for a new hyperspace bypass and his best friend has just announced that he’s an alien. At this moment, they’re hurtling through space with nothing but their towels and an innocuous-looking book inscribed with the big, friendly words: DON’T PANIC. The weekend has only just begun... Volume one in the trilogy of five
 				     	</p>
-				     	<div class="overflow-fading"></div>
 			     	</div>
+				    <div class="overflow-fading"></div>
 		    	</div>
 		    	<div class="actions">
-		    		<div class="col-md-4 col-xs-4 add">ADD</div>
-		    		<div class="col-md-4 col-xs-4 details">Details</div>
-		    		<div class="col-md-4 col-xs-4 read">Read</div>
+		    		<div class="col-md-4 col-xs-4 add"><span class="icon-plus"></span></div>
+		    		<div class="col-md-4 col-xs-4 details"><span class="icon-expand"></span></div>
+		    		<div class="col-md-4 col-xs-4 check-read"><span class="icon-checkmark"></span></div>
 		    	</div>
-		    </div> -->
+		    </div>
 		
 		  </div>
 		</div>
+
+		<br /><br /><br />
+
 		<!-- <div class="log"></div> -->
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		
 		<script type="text/javascript" src="js/global.js"></script>
-		<script type="text/javascript" src="js/books.js"></script>
 		<script type="text/javascript" src="js/search.js"></script>
+		<script type="text/javascript" src="js/books.js"></script>
 
 	</body>
 </html>
