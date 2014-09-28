@@ -1,6 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Pacifico);
 
 @base: #CDE;
+@navbar: #BCD;
 
 
 
@@ -174,7 +175,46 @@ body{
 }
 
 
+.navbar-bro{
+  min-height: 40px;
+  background-color: @navbar;
 
+  .bro-info{
+    text-align: right;
+
+    .name{
+      color: #777;
+      display: inline-block;
+    }
+
+
+    .photo{
+      height: 30px;
+      width: 30px;
+      border-radius: 90px;
+      margin: 5px;
+    }
+  }
+
+
+  .btn-login{
+    text-align: right;
+    display: block;
+    margin: 4px;
+    font-size: 22px;
+
+    span{
+      color: #777;
+      cursor: pointer;
+    }
+
+    .label{
+      display: inline-block;
+      font-family: "Pacifico";
+    }
+  }
+
+}
 
 
 
