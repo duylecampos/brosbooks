@@ -19,102 +19,174 @@ body{
     text-shadow: 0 2px 2px darken(@base,40%);
   }
 }
-
-.article{
-  position:relative;
-  padding:10px;
-  margin-top: 120px;
-  background-color: #FFF;
-  cursor:pointer;
-  border: 1px solid #D2BDCA;
-  
-  .img-wrapper{
-    position: relative;
-    width: 170px;
-    height: 250px;
-    top: -85px;
-    border-radius: 100px;
-    background-color: @base;
-    margin: 0 auto;
+.article-wrapper{
+  .article{
+    position:relative;
+    padding:10px;
+    margin-top: 120px;
+    background-color: #FFF;
+    cursor:pointer;
+    border: 1px solid #D2BDCA;
     
-    img{
-      border-radius: 100px;
+    .cover-wrapper{
+      position: relative;
       width: 170px;
-      height: 240px;
-      padding: 0 5px;
-    }
-  }
-  
-  .info-wrapper{
-    margin-top: -90px;
-    height: 250px;
-    overflow: hidden;
-
-    .title-wrapper{
-      margin-bottom: 10px;
-      border-bottom: 2px solid @base;
+      height: 250px;
+      top: -85px;
+      border-radius: 100px;
+      background-color: @base;
+      margin: 0 auto;
       
-      h1{
-        font-size: 14px;
-        line-height: 25px;
-        color: #428bca;
+      img{
+        border-radius: 100px;
+        width: 170px;
+        height: 240px;
+        padding: 0 5px;
+      }
+    }
+    
+    .info-wrapper{
+      margin-top: -90px;
+      height: 250px;
+      overflow: hidden;
+
+      .title-wrapper{
+        margin-bottom: 10px;
+        border-bottom: 2px solid @base;
+        
+        h1{
+          font-size: 14px;
+          line-height: 25px;
+          color: #428bca;
+        }
+      }
+
+      .desc{
+        color: #AAA;
+        font-size: 12px;
+        text-align: justify;
+      }
+
+      .authors{
+        color: #888;
       }
     }
 
+    .overflow-fading{
+      position: relative;
+      height: 65px;
+      margin-top: -65px;
+      background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, white));
+      background-image: -webkit-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
+      background-image: -moz-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
+      background-image: -ms-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
+      background-image: -o-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
+    }
+     
+  }
+
+  .actions{
+    height: 38px;
+    background-color: #FFF;
+    border: 1px solid #D2BDCA;
+    border-top: none;
+
+    div{
+      background-color: inherit;
+      border-right: 1px solid #D2BDCA;
+      text-align: center;
+      padding: 10px 0px;
+      font-size: 12px;
+      color: #777;
+      span{
+        cursor: pointer;  
+      }    
+    }
+
+    div:last-child{
+      border-right: none; 
+    }
+  }
+}
+
+.book-detail{
+  background-color: #FFF; 
+  margin: 20px 0;
+
+  .title-wrapper{
+    margin-bottom: 10px;
+    border-bottom: 2px solid @base;
+    text-align: left;
+    
+    h1{
+      font-size: 29px;
+      line-height: 25px;
+      color: #428bca;
+    }
+  }
+  
+  .cover-wrapper{
+    padding: 10px;
+
+    img{
+      display: block;
+      margin: 0 auto;
+    }
+
+    .cover-info{
+      margin-top: 20px;
+      small{
+       color: #888;
+       display: block;
+      }
+    }
+  }
+
+  .info{
     .desc{
       color: #AAA;
       font-size: 12px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid @base;
     }
 
-    .authors{
-      color: #888;
+    .friends-wrapper{
+      padding: 0 0 15px;
+
+      .friends{
+        display: inline-block;
+
+        h3{
+          margin-top: 5px;
+          font-size: 16px;
+          color: #428bca;
+        }
+      }
+
+      img{
+        height: 40px;
+        width: 40px;
+        border-radius: 90px;
+      }
     }
   }
-
-  .overflow-fading{
-    position: relative;
-    height: 65px;
-    margin-top: -65px;
-    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, white));
-    background-image: -webkit-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-    background-image: -moz-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-    background-image: -ms-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-    background-image: -o-linear-gradient(center top, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-  }
-   
 }
 
-.actions{
-  height: 38px;
-  background-color: #FFF;
-  border: 1px solid #D2BDCA;
-  border-top: none;
 
-  div{
-    background-color: inherit;
-    border-right: 1px solid #D2BDCA;
-    text-align: center;
-    padding: 10px 0px;
-    font-size: 12px;
-    color: #777;
-    span{
-      cursor: pointer;  
-    }    
-  }
 
-  div:last-child{
-    border-right: none; 
-  }
 
-  .add{
-    
-  }
 
-  .details{
 
-  }
 
-  .mark-read{
 
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
