@@ -1,3 +1,4 @@
+
 $('#book-search').on("click", function(){
 	findTheBook();
 });
@@ -9,6 +10,7 @@ $("#search-field").on('keypress', function(e) {
 });
 
 $(document).on('click', '.actions .details span.icon-expand', function(){
+	$('.book-detail-wrapper').remove();
 	btn_details = $(this);
 	book = $(this).closest('.article-wrapper');
 	id = book.attr('id');
@@ -18,7 +20,7 @@ $(document).on('click', '.actions .details span.icon-expand', function(){
 	}).done(function(results) {
 		btn_details.removeClass('icon-expand');
 		btn_details.addClass('icon-contract');
-		createBookDetails(results, book);
+		createBookDetails(book, results);
 	}).fail(function( jqXHR, textStatus ) {
 		alert( "Request failed: " + textStatus );
 	});
@@ -42,6 +44,7 @@ function findTheBook(){
 		dataType: "json"
 	}).done(function(results) {
 		$('.article-wrapper').remove();
+		$('.book-detail-wrapper').remove();
 		$.each(results.items, function(key, val) {
 			createBookList(val);
 		});
@@ -83,7 +86,7 @@ function createBookList(bookInfo){
 	);
 }
 
-function createBookDetails(bookInfo, target){
+function createBookDetails(target, bookInfo){
 	bookData = bookInfo.volumeInfo;
 	thumbnail = (typeof(bookData.imageLinks) != 'undefined')? bookData.imageLinks.thumbnail : './img/book-placeholder.jpg';
 	authors = (typeof(bookData.authors) != 'undefined')? bookData.authors.join() : '-';
@@ -107,12 +110,43 @@ function createBookDetails(bookInfo, target){
 			).append(
 				$('<div />').addClass('col-md-9 col-xs-12 info').append(
 					$('<p />').addClass('desc').append(bookData.description)
+				).append(
+					$('<div />').addClass('col-md-12 friends-wrapper').append(
+						$('<div />').addClass('col-md-6 read-friends friends').append(
+							$('<h3 />').text('Amigos que leram:')
+						)
+					).append(
+						$('<div />').addClass('col-md-6 wish-friends friends').append(
+							$('<h3 />').text('Amigos que desejam:')
+						)
+					)
 				)
 			)
 		)
 	).insertAfter(target);
+	searchFriends(bookInfo.id);
 }
 
+function searchFriends(bookId){
+	FB.api('/me/taggable_friends', function(response) {
+
+		$.each(response.data, function(key, val) {
+			$('.read-friends').append(
+				$('<img />').attr('src', val.picture.data.url).attr('alt', val.name)
+			);
+			if(key > 6)
+				return false;
+		});
+
+		$.each(response.data, function(key, val) {
+			$('.wish-friends').append(
+				$('<img />').attr('src', val.picture.data.url).attr('alt', val.name)
+			);
+			if(key > 7)
+				return false;
+		});
+	});
+}
 
 
 
