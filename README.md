@@ -1,4 +1,4 @@
 brosbooks
 =========
 
-A book wishlist with facebook intregation and rating system
+A book wishlist with facebook integration and rating system
